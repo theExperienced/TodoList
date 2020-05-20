@@ -24,7 +24,6 @@ class AddTodo extends Component {
   };
 
   render() {
-    console.log("REDNERING ADDTODO");
     return (
       <div className={`todo-container ${this.props.shrink ? 'shrink-on-focus-out' : ''}`}>
         <form className="todo-form" onSubmit={this.onSubmit}>
@@ -33,6 +32,7 @@ class AddTodo extends Component {
               className={`todo-input ${this.props.shrink ? 'shrink-on-focus-out' : ''}`}
               ref={this.myRef}
               value={this.state.value}
+              spellcheck="false"
               onChange={this.onChange}
               // onKeyDown{}
               type="text"

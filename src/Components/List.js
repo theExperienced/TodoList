@@ -46,10 +46,6 @@ class List extends Component {
 
     return (
       <div className="list-complex">
-        {/* <h2 className="list-heading list-heading-undone">Undone</h2> */}
-        {/* {doneListNotEmpty ? (
-          <h2 className="list-heading list-heading-done">Done</h2>
-        ) : null} */}
         <ul className="list list-undone">{this.renderUndoneList()}</ul>
         <ul className="list list-done">{this.renderDoneList()}</ul>
       </div>

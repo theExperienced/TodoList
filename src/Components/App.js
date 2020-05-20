@@ -35,14 +35,12 @@ class App extends Component {
   onTodoOperation = (operation, id, content = null) => {
     const currentTodos = [...this.state.todos];
     const indexWanted = _.findIndex(currentTodos, todo => todo.id === id);
-    console.log("TODO.ID", indexWanted);
     if (operation === "edit") {
       currentTodos[indexWanted].content = content;
     } else if (operation === "toggleDone") {
       currentTodos[indexWanted].done = !currentTodos[indexWanted].done;
     } else {
       currentTodos.splice(indexWanted, 1);
-      console.log("CURRENT TODOS", currentTodos);
     }
 
     this.setState({

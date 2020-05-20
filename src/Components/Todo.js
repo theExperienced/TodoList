@@ -6,12 +6,13 @@ class Todo extends Component {
     super(props);
 
     this.inputRef = React.createRef();
-    // this.todoRef = React.createRef();
   }
+
   state = {
     editing: false,
     value: ""
   };
+
   renderEditButton() {
     if (!this.props.todo.done) {
       return (
@@ -25,8 +26,6 @@ class Todo extends Component {
         >
           <i className="fas fa-pencil-alt fa-2x"></i>
         </button>
-
-        //   () => this.props.onTodoOperation('edit', (this.props.todo.id), content)
       );
     }
   }
@@ -38,7 +37,6 @@ class Todo extends Component {
           className="todo-content-editing-form"
           onSubmit={e => {
             e.preventDefault();
-            // console.log('E>TRAGET>VALUE', e.target.value)
             if (
               this.state.value !== undefined &&
               this.state.value.trim() !== ""
@@ -56,6 +54,7 @@ class Todo extends Component {
             type="text"
             className="todo-content-editing-input"
             value={this.state.value}
+            spellcheck="false"
             onChange={e => this.setState({ value: e.target.value })}
             onBlur={() => {
               this.setState({ editing: false });
@@ -68,26 +67,6 @@ class Todo extends Component {
     return <p className="todo-content">{this.props.todo.content}</p>;
   }
 
-  //   componentDidMount() {
-  //     if
-  //   }
-
-//   componentDidMount() {
-
-//     const vh = window.innerHeight;
-
-//     const clientRect = this.todoRef.current.getBoundingClientRect();
-//     const { top, bottom, height } = clientRect;
-//     const middleFromMiddle = top => vh / 2 ?                   //@#%%$&^*$%#^$#%$&$consider the =>        !!!!#$^&$&$%#^#%
-//     top + height / 2 :
-//     bottom + height / 2;
-//     const zoom = 0.5 + middleFromMiddle / (vh / 2);
-
-//     this.todoRef.current.style = {transform: `scale(${zoom})`};
-
-
-//   }
-
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.editing && this.state.editing) {
       this.setState({ value: this.props.todo.content });
@@ -97,14 +76,12 @@ class Todo extends Component {
   }
 
   render() {
-
     return (
-      <div className={`todo${this.props.todo.done ? " done" : ""}`} ref={this.todoRef} >
+      <div className={`todo${this.props.todo.done ? " done" : ""}`} ref={this.todoRef}>
         <div className="todo-main">
           <p className="todo-date">{this.props.todo.date}</p>
           {this.renderParagraphOrInput()}
         </div>
-        {/* <div className="todo-button-group"> */}
         <div className="todo-button-group">
           {this.renderEditButton()}
           <button

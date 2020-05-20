@@ -2,10 +2,8 @@
 
 .todo-container {
     position: sticky;
-    /* z-index: 1000; */
     top: 0;
     z-index: 1000;
-    /* align-self: stretch; */
     grid-row: 1 / span 2;
     grid-column: 1 / span 1;
 }
@@ -18,14 +16,9 @@
     color: transparent;
 }
 
-
-
 .todo-form {
     display: flex;
-    /* width: 60%; */
     height: 100%;
-    /* margin: 0 auto; */
-    /* margin-bottom: 4rem; */
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -36,8 +29,6 @@
 }
 
 .todo-input {
-    /* height: 3rem; */
-    /* border-radius: 25px 0 0 25px; */
     position: relative;
     border: 0;
     width: 100%;
@@ -53,14 +44,26 @@
     transition: all .15s linear;
 }
 
+@media only screen and (max-width: 35em) {
+    .todo-input {
+        font-size: 2.5rem;
+        padding: 0 .4rem;
+    }
+}
+
 .todo-input:focus {
-    /* background-color: black; */
     background-image: linear-gradient(to left, rgba(255, 173, 255, .45), rgba(255, 173, 255, .1));
     box-shadow: 0 0 15px 6px black;
 }
 
 .todo-input.shrink-on-focus-out:not(:focus) {
     font-size: 4rem;
+}
+
+@media only screen and (max-width: 35em) {
+    .todo-input.shrink-on-focus-out:not(:focus) {
+        font-size: 2rem;
+    }
 }
 
 .todo-input.shrink-on-focus-out::placeholder {
@@ -74,18 +77,13 @@
 }
 
 .todo-input:focus::placeholder {
-    /* box-shadow: inset 0 0 15px 1px rgba(255, 255, 255, 0.425); */
    color: transparent;
    text-shadow: none;
-
 }
 
 .todo-input:not(:focus) {
-    /* box-shadow: inset 0 0 15px 1px rgba(255, 255, 255, 0.425); */
    color: transparent;
-   /* text-shadow: 3px 3px 0 rgba(255, 255, 255, .35); */
     text-shadow: 2px 2px 3px rgba(0, 0, 0, .1);
-
 }
 
 .todo-span:not(:focus-within)::after {
@@ -103,24 +101,12 @@
     padding-left: 1rem;
     text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px #9600b4, 0 0 30px #9600b4, 0 0 45px #9600b4;
     animation: power-flicker 5s linear infinite;
-    /* color: rgb(129, 0, 141);
-    text-shadow: 
-    2px 2px 10px white, 
-    2px -2px 10px white, 
-    -2px 2px 10px white, 
-    -2px -2px 10px white, 
-    5px 5px 10px rgba(255, 255, 255, 0.37), 
-    5px -5px 10px rgba(255, 255, 255, 0.37),
-    -5px 5px 10px rgba(255, 255, 255, 0.37),
-    -5px -5px 10px rgba(255, 255, 255, 0.37); */
 }
 
 .add-todo-button {
     flex: 0 0 10vw;
-    /* height: 3rem; */
     visibility : hidden;
     opacity: 0;
-    /* border-radius: 0 25px 25px 0; */
     border: 0;
     color: rgba(0, 0, 0, 0.404);
     font-weight: 100;
@@ -131,17 +117,20 @@
     transition: all .15s linear;
 }
 
+@media only screen and (max-width: 35em) {
+    .add-todo-button {
+        flex: .01 0 10vw;
+        font-size: 4rem;
+    }
+}
+
 .add-todo-button-enabled {
     position: relative;
     background-image: radial-gradient(circle at 0% 30%, rgb(218, 31, 255) 10%, rgb(122, 61, 19) 70%);
-    /* background-image: linear-gradient(140deg, transparent 50%, white 50%); */
     background-size: 200%;
-    /* background-position: ; */
     background-repeat: no-repeat;
     overflow: hidden;
     color: rgba(0, 0, 0, 0.582);
-    /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.411); */
-    /* box-shadow: inset 0 0 20px -1px rgba(0, 0, 0, .3); */
 }
 
 .add-todo-button-enabled::after {
@@ -151,8 +140,6 @@
     width: 200%;
     transform: rotate(-55deg);
     background-image: linear-gradient( transparent, rgba(255, 255, 255, .2),   rgba(255, 255, 255, .85), rgba(255, 255, 255, .2), transparent   );
-    /* border: 2px solid rgba(255, 255, 255, .25); */
-
     animation: button-spark 3.5s linear infinite forwards;
 }
 
@@ -163,7 +150,6 @@
 }
 
 .add-todo-button-enabled:hover {
-    /* box-shadow: inset 0 0 35px 8px rgba(91, 0, 128, 0.735), inset 0 0 45px 10px rgba(255, 255, 255, 0.65); */
     color: rgb(255, 234, 240);
     text-shadow: 0 0 20px rgba(248, 193, 255, 1), 0 0 40px rgba(248, 193, 255, 1), 0 0 60px rgba(248, 193, 255, 1), 0 0 100px rgba(248, 193, 255, 1);
 }

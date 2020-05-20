@@ -13,8 +13,18 @@ button {
     grid-template-columns: 1fr minmax(min-content, 10rem);
     align-items: start;
     background-color: rgba(255, 255, 255, 1);
-    /* border-radius: 10px; */
-    
+}
+
+@media only screen and (max-width: 35em) {
+    .todo {
+        padding: 1rem;
+        grid-template-columns: auto;
+        border-radius: 0 4px 4px 0 ;
+        grid-row-gap: 2rem;
+    }
+    .todo.done {
+        border-radius: 4px 0 0 4px;
+    }
 }
 
 .todo-main {
@@ -29,6 +39,13 @@ button {
     font-family: 'Calistoga', cursive;
 }
 
+@media only screen and (max-width: 35em) {
+    .todo-date {
+        font-size: .8rem;
+        margin-bottom: .5rem;
+    }
+}
+
 .todo-content {
     font-family: 'Calistoga', cursive;
     margin-right: auto;
@@ -37,10 +54,14 @@ button {
     word-break: break-all;
     font-weight: 900;
     text-transform: capitalize;
-    /* padding: 1.5rem 1rem;        */
     height: 50%;
     border: 2px solid transparent;
-    /* border-bottom: 2px solid transparent; */
+}
+
+@media only screen and (max-width: 35em) {
+    .todo-content {
+        font-size: 1.1rem;
+    }
 }
 
 .todo-content-editing-form {
@@ -64,6 +85,12 @@ button {
     outline: none;
 }
 
+@media only screen and (max-width: 35em) {
+    .todo-content-editing-input {
+        font-size: 1rem;
+    }
+}
+
 .todo.done > .todo-content {
     text-decoration: line-through;
     color: rgba(0, 0, 0, 0.253);
@@ -71,9 +98,18 @@ button {
 }
 
 .todo-button-group {
-    /* padding-top: ; */
     display: flex;
     justify-content: flex-end;
+}
+
+@media only screen and (max-width: 35em) {
+    .todo-button-group > button {
+        width: auto;
+        margin-left: 1rem;
+    }
+    .todo-button-group  * {
+        font-size: 1rem;
+    }
 }
 
 .todo-edit-button {
@@ -81,32 +117,29 @@ button {
     width: 3rem;
     cursor: pointer;
     background-color: transparent;
-    /* margin-right: 1rem; */
-    /* box-shadow: 0 0 5px 1px black; */
+}
+
+@media only screen and (max-width: 35em) {
+    
 }
 
 .todo-done-button {
-    /* overflow: hidden; */
     border: none;
     font-family: 'Josefin Sans', sans-serif;
     background-color: transparent;
     color: rgba(0, 0, 0, .8);
     cursor: pointer;
     width: 3rem;
-    /* margin-right: 1rem; */
     border-radius: 5px 0 0 5px;
-    /* box-shadow: 0 0 5px 1px black; */
     background-repeat: no-repeat;
 }
 
 .todo-discard-button {
-    /* overflow: hidden; */
     border: none;
     background-color: transparent;
     width: 3rem;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
-    /* box-shadow: 0 0 5px 1px black; */
 }
 
 i {
