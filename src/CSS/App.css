@@ -19,7 +19,7 @@
 
 @media only screen and (max-width: 35em) {
   .container {
-    grid-template-rows: 7vh 7vh auto;
+    grid-template-rows: 5vh 5vh auto;
   }
 }
 
