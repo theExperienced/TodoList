@@ -120,7 +120,7 @@
 @media only screen and (max-width: 35em) {
     .add-todo-button {
         flex: .01 0 10vw;
-        font-size: 4rem;
+        font-size: 2rem;
     }
 }
 
